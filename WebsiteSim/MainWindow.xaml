@@ -1,0 +1,20 @@
+﻿<Window x:Class="WebsiteSim.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WebsiteSim"
+        mc:Ignorable="d"
+        Title="Website Simulator" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="GenerateButton" Click="GenerateButton_Click">Generate Request</Button>
+            <TextBox x:Name="RequestString" Height="156"/>
+            <Label>Postback:</Label>
+            <TextBox x:Name="PostBackText" Height="100"/>
+            <Button x:Name="ReadPostBack" Click="ReadPostBack_Click">Process Postback</Button>
+            <TextBox x:Name="ProcessResult" Height="100"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
