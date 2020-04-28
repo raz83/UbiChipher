@@ -11,6 +11,7 @@
             <TextBox x:Name="InputText" Height="173"/>
             <Button x:Name="ReadButton" Click="ReadButton_Click">Read</Button>
             <TextBox x:Name="PostBackText" Height="100"/>
+            <Button x:Name="HTTPPostButton" Click="HTTPPostButton_Click">HTTP Post (Web App Test Only)</Button>
         </StackPanel>
 
     </Grid>

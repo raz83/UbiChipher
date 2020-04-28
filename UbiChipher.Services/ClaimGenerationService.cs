@@ -3,7 +3,9 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using UbiChipher.Data;
 
 namespace UbiChipher.Services
@@ -26,6 +28,34 @@ namespace UbiChipher.Services
             var postbackContent = JsonConvert.SerializeObject(matches);
             return postbackContent;
         }
+
+        public async Task<string> SubmitClaim(Request request, string claims)
+        {
+            HttpClient client = new HttpClient();
+            string errorMessage = null;
+            StringContent requestContent = new StringContent(claims, Encoding.UTF8, "application/json");
+
+            try
+            {
+                HttpResponseMessage httpResponse = await client.PostAsync(request.PostBackUri, requestContent);
+
+                if (!httpResponse.IsSuccessStatusCode)
+                {
+                    errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    if (string.IsNullOrEmpty(errorMessage))
+                    {
+                        errorMessage = "The service failed to post the claim.";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorMessage = ex.ToString();
+            }
+
+            return errorMessage;
+        }
+
 
         private void CreateTestData()
         {

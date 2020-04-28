@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebsiteSim"
         mc:Ignorable="d"
-        Title="Website Simulator" Height="450" Width="800">
+        Title="Website Simulator" Height="450" Width="850">
     <Grid>
         <StackPanel>
             <Button x:Name="GenerateButton" Click="GenerateButton_Click">Generate Request</Button>
-            <TextBox x:Name="RequestString" Height="156"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="RequestString" Height="200" Width="600"/>
+                <Image x:Name="QRImage" Width="200" />
+            </StackPanel>
             <Label>Postback:</Label>
             <TextBox x:Name="PostBackText" Height="100"/>
             <Button x:Name="ReadPostBack" Click="ReadPostBack_Click">Process Postback</Button>

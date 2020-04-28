@@ -7,10 +7,10 @@
              x:Class="UbiChipher.Views.ScanPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <!--<Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="ButtonScanDefault" Text="Scan Default"/>
+                HorizontalOptions="CenterAndExpand" />-->
+            <Button x:Name="ButtonScanDefault" Text="Scan Default" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

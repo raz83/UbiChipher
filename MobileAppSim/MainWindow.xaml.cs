@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.Windows;
+using UbiChipher.Data;
 using UbiChipher.Services;
 
 namespace MobileAppSim
@@ -9,6 +12,7 @@ namespace MobileAppSim
     public partial class MainWindow : Window
     {
         ClaimGenerationService claimGenerationService;
+        string postbackContent;
 
         public MainWindow()
         {
@@ -20,9 +24,15 @@ namespace MobileAppSim
         {
             var QRText = InputText.Text;
 
-            string postbackContent = claimGenerationService.GenerateClaim(QRText);
+            postbackContent = claimGenerationService.GenerateClaim(QRText);
 
             PostBackText.Text = postbackContent;
+        }
+
+        private async void HTTPPostButton_Click(object sender, RoutedEventArgs e)
+        {
+            Request request = JsonConvert.DeserializeObject<Request>(InputText.Text);
+            string error = await claimGenerationService.SubmitClaim(request, postbackContent);
         }
     }
 }
