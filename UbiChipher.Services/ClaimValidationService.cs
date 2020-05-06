@@ -11,7 +11,7 @@ namespace UbiChipher.Services
 {
     public class ClaimValidationService
     {
-        private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
+        //private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
 
         public ClaimValidationService()
         {
