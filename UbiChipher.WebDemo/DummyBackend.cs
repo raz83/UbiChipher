@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace UbiChipher.WebDemo
 {
-    public class Dummy
+    public class DummyBackend
     {
         public static bool Verified = false;
+        public static string Message = null;
     }
 }

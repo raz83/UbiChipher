@@ -22,7 +22,7 @@ namespace UbiChipher.Services
 
                 //Create byte/raw bitmap qr code
                 BitmapByteQRCode qrCodeBmp = new BitmapByteQRCode(qrCodeData);
-                byte[] qrCodeImageBmp = qrCodeBmp.GetGraphic(20, new byte[] { 118, 126, 152 }, new byte[] { 144, 201, 111 });
+                byte[] qrCodeImageBmp = qrCodeBmp.GetGraphic(20, new byte[] { 0, 0, 0 }, new byte[] { 255, 255, 255 });
 
                 ////Create byte/raw png qr code
                 //PngByteQRCode qrCodePng = new PngByteQRCode(qrCodeData);

@@ -24,7 +24,7 @@ namespace UbiChipher.WebDemo.Controllers
 
         public async Task<IActionResult> Index()
         {
-            if (Dummy.Verified)
+            if (DummyBackend.Verified)
             {
                 return RedirectToAction("Profile");
             }
@@ -46,6 +46,8 @@ namespace UbiChipher.WebDemo.Controllers
 
         public IActionResult Profile()
         {
+            ViewBag.Message = DummyBackend.Message;
+
             return View();
         }
 

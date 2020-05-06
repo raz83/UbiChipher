@@ -1,4 +1,6 @@
-﻿using Data;
+﻿using BitcoinLib.Services.Coins.Base;
+using BitcoinLib.Services.Coins.Bitcoin;
+using Data;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,8 @@ namespace UbiChipher.Services
 {
     public class ClaimValidationService
     {
+        private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
+
         public ClaimValidationService()
         {
             CreateTestData();
@@ -28,6 +32,11 @@ namespace UbiChipher.Services
         private string GetClientClaimFingerPrintFromBlockchain(string clientPubKey, string claimName)
         {
             return testFingerprint;
+
+            // TODO: complete this implementation
+
+            //var transactionToScanForClaim = CoinService.ListTransactions(clientPubKey);
+
         }
 
         private string CreateMD5(string input)

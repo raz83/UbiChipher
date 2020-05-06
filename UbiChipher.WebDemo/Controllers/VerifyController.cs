@@ -6,6 +6,8 @@ using Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using UbiChipher.Services;
 
 namespace UbiChipher.WebDemo.Controllers
 {
@@ -29,7 +31,18 @@ namespace UbiChipher.WebDemo.Controllers
             try
             {
                 // TODO: stuff
-                Dummy.Verified = true;
+                var claimValidationService = new ClaimValidationService();
+
+                var claimsJson = JsonConvert.SerializeObject(claims); // TODO: Create an overload for ValidateClaim that accepts List<Claim>
+
+                claimValidationService.ValidateClaim(claimsJson, out string hashOfClient, out string hashOnBlockChain, out bool match);
+
+                var message = match ?
+                    $"You are logged in, your claim fingerprint {hashOfClient} mathes fingerpring {hashOnBlockChain} on the blochain." :
+                    $"You NOT are logged in, your claim fingerprint {hashOfClient} does not match fingerpring {hashOnBlockChain} on the blochain.";
+
+                DummyBackend.Verified = true;
+                DummyBackend.Message = message;
 
                 return NoContent();
             }
@@ -46,7 +59,7 @@ namespace UbiChipher.WebDemo.Controllers
         [Route("TestVerified")]
         public bool TestVerified()
         {
-            return Dummy.Verified;
+            return DummyBackend.Verified;
         }
 
     }
