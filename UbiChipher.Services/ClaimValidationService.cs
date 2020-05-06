@@ -24,13 +24,15 @@ namespace UbiChipher.Services
             var clientPubKey = clientClaim.PubKey;
 
             hashOfClient = CreateMD5(textFromRESTApi);
-            hashOnBlockChain = GetClientClaimFingerPrintFromBlockchain(clientPubKey, "Name");
+            hashOnBlockChain = GetClientClaimFingerPrintFromBlockchain(clientPubKey, hashOfClient);
 
             match = hashOfClient == hashOnBlockChain;
         }
 
-        private string GetClientClaimFingerPrintFromBlockchain(string clientPubKey, string claimName)
+        private string GetClientClaimFingerPrintFromBlockchain(string clientPubKey, string hashOfClient)
         {
+            // This will check the hash the client provided against the hash stored on the blockchain.
+
             return testFingerprint;
 
             // TODO: complete this implementation
