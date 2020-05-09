@@ -22,11 +22,8 @@ namespace UbiChipher.Services
         public string GenerateClaim(string QRText)
         {
             var pharesedQR = JsonConvert.DeserializeObject<Request>(QRText);
-
             var matches = claimsWallet.Where(x => x.Claims.Keys.Any(y => pharesedQR.ClaimRequests.Contains(y))).ToList();
-
-            var postbackContent = JsonConvert.SerializeObject(matches);
-
+            var postbackContent = SignClaimsWithPrivateKey(matches);
 
             return postbackContent;
         }
