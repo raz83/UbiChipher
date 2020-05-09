@@ -26,7 +26,24 @@ namespace UbiChipher.Services
             var matches = claimsWallet.Where(x => x.Claims.Keys.Any(y => pharesedQR.ClaimRequests.Contains(y))).ToList();
 
             var postbackContent = JsonConvert.SerializeObject(matches);
+
+
             return postbackContent;
+        }
+
+        /// <summary>
+        /// This method is responsible for signing the claims with the users private key.
+        /// This enables the verifier that ensure that the claim is provided by the actual user.
+        /// </summary>
+        /// <param name="claims"></param>
+        /// <returns></returns>
+        private string SignClaimsWithPrivateKey(List<Claim> claims)
+        {
+            return JsonConvert.SerializeObject(claims);
+
+            // TODO: implement actual signing...
+            ClaimsEnvelope claimsEnvelope = new ClaimsEnvelope();
+
         }
 
         public async Task<string> SubmitClaim(Request request, string claims)
@@ -69,7 +86,7 @@ namespace UbiChipher.Services
                        { "Name", "Murray" }
                    },
 
-                Expires = DateTime.Parse("2021-04-21T15:24:12.6242835Z"), // DateTime.UtcNow.AddDays(365),
+                RenewalDate = DateTime.Parse("2021-04-21T15:24:12.6242835Z"), // DateTime.UtcNow.AddDays(365),
 
                 PubKey = "21489122-ae06-4bb6-b01b-6e46bb15cc64" //Guid.NewGuid().ToString()
             };

@@ -75,7 +75,7 @@ namespace UbiChipher.Services
                        { "Name", "Murray" }
                    },
 
-                Expires = DateTime.Parse("2021-04-21T15:24:12.6242835Z"), // DateTime.UtcNow.AddDays(365),
+                RenewalDate = DateTime.Parse("2021-04-21T15:24:12.6242835Z"), // DateTime.UtcNow.AddDays(365),
 
                 PubKey = "21489122-ae06-4bb6-b01b-6e46bb15cc64" //Guid.NewGuid().ToString()
             };
