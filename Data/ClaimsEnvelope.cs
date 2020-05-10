@@ -8,7 +8,7 @@ namespace UbiChipher.Data
     {
         /// <summary>
         /// This is to ensure backwards compatibility with older versions of this protocol. 
-        /// It is neccessary so that the protocol can get any sercurity patches that it may need.
+        /// It is necessary so that the protocol can get any security patches that it may need.
         /// </summary>
         public string ProtocalVersoin { get; set; }
 
@@ -18,7 +18,7 @@ namespace UbiChipher.Data
         public List<Claim> Claims { get; set; }
 
         /// <summary>
-        /// This is the name of the orginiation that is being authorized to use this claim collection.
+        /// This is the name of the organization that is being authorized to use this claim collection.
         /// </summary>
         public string IssuedTo { get; set; }
 

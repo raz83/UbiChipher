@@ -17,7 +17,7 @@ namespace Data
         /// <summary>
         /// This is just an extra security measure. When a user provides a claim, the hash also needs to be signed
         /// by the user's private key for it to be valid, so this isn't technically needed.
-        /// This is just to provide extra confidance about having this stored on the blockchain.
+        /// This is just to provide extra confidence about having this stored on the blockchain.
         /// (Even though only the hash of this class will be stored on the block)
         /// </summary>
         public DateTime RenewalDate { get; set; }
