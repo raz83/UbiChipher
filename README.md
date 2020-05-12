@@ -60,6 +60,26 @@ https://youtu.be/ePwzr6Qt3Ks
 
 ## Other resources
 
+### Similar projects
+
+#### IBM promotional video
+
+https://www.youtube.com/watch?v=H69l_trRArU
+
+#### Sovrin
+
+https://www.youtube.com/watch?v=Hg7psADNcVU
+
+#### VIDchain
+
+https://www.youtube.com/watch?v=eRxVWeX389w
+
+#### Bloom ID
+
+https://www.youtube.com/watch?v=ntNKcBlw9FU
+
+### Microsoft
+
 #### An introduction to decentralized identities | Azure Friday
 
 https://www.youtube.com/watch?v=r28GeXkxn0w
