@@ -1,5 +1,6 @@
 # UbiChipher
 A privacy focused, public, open, transparent, decentralised, self-soverin, opens source identity management project. Puts users fully in control of their own digital identity in a secure and very easy to use manner. Similar to ID2020, European Blockchain Services Infrastructure and Decentralized Identity Foundation projects listed below, but without the centralized “walled garden” control. Blockchain is a powerful and inevitable tool. Lets give this power to the people who deserve it. 
+Demo (@8:41): https://youtu.be/WbGETEvv1Qk?t=521
 
 ## Video Demos
 #### Promotional Video
