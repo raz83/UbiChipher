@@ -7,7 +7,6 @@ namespace UbiChipher.WebDemo.Controllers
     [ApiController]
     public class EnrolmentController : ControllerBase
     {
-
         // TODO: add OpenAPI/ NSwag/ Swashbuckle/ code generation stuff...
 
         // For now, call using:
@@ -18,7 +17,6 @@ namespace UbiChipher.WebDemo.Controllers
         [Route("EnrollClaims")]
         public string EnrollClaims([FromBody] Enrolment enrolment)
         {
-
             return $"TODO: Handle enrollment for {enrolment.Intermediary.Name}";
         }
 

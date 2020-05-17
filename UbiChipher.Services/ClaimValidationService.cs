@@ -1,11 +1,7 @@
-﻿using BitcoinLib.Services.Coins.Base;
-using BitcoinLib.Services.Coins.Bitcoin;
-using Data;
+﻿using Data;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UbiChipher.Infrastructure.Blockchain;
 using UbiChipher.Utilities;
 
@@ -22,8 +18,6 @@ namespace UbiChipher.Services
 
             // TODO: Remove once DI added (actually add this DI stuff everywhere in the solution, then add unit tests, stuff...
             this.blockchainClaimHashFinder = new BlockchainClaimHashFinder();
-
-
         }
 
         public void ValidateClaim(string textFromRESTApi, out string hashOfClient, out string hashOnBlockChain, out bool match)
@@ -40,8 +34,5 @@ namespace UbiChipher.Services
 
             match = hashOfClient == hashOnBlockChain;
         }
-
-
-
     }
 }
