@@ -22,7 +22,7 @@ namespace UbiChipher.Services
         public string GenerateClaim(string QRText)
         {
             var pharesedQR = JsonConvert.DeserializeObject<Request>(QRText);
-            var matches = claimsWallet.Where(x => x.Claims.Keys.Any(y => pharesedQR.ClaimRequests.Contains(y))).ToList();
+            var matches = claimsWallet.Where(x => x.ClaimPairs.Keys.Any(y => pharesedQR.ClaimRequests.Contains(y))).ToList();
             var postbackContent = SignClaimsWithPrivateKey(matches);
 
             return postbackContent;
@@ -70,7 +70,7 @@ namespace UbiChipher.Services
             return errorMessage;
         }
 
-
+        #region Test Data
         private void CreateTestData()
         {
             claimsWallet = new List<Claim>();
@@ -78,7 +78,7 @@ namespace UbiChipher.Services
 
             var testClaim = new Claim() //[{"Expires":"2021-04-21T15:24:12.6242835Z","PubKey":"21489122-ae06-4bb6-b01b-6e46bb15cc64","Claims":{"Name":"Murray"}}]
             {
-                Claims = new Dictionary<string, string>()
+                ClaimPairs = new Dictionary<string, string>()
                    {
                        { "Name", "Murray" }
                    },
@@ -90,5 +90,6 @@ namespace UbiChipher.Services
 
             claimsWallet.Add(testClaim);
         }
+        #endregion
     }
 }

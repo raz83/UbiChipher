@@ -12,8 +12,23 @@ namespace Data
     {
         public string PubKey { get; set; }
 
-        public Dictionary<string, string> Claims { get; set; }
-        
+        /// <summary>
+        /// NOTE: We should attempt to only use one key value pair per Claim,
+        /// so that a user can proof each claim independently. But this will not be enforce.
+        /// If they want a collection, bundled together, they can. This is why this is a
+        /// Dictionary and not a KeyValuePair.
+        /// 
+        /// TODO: Consider changing this to KeyValuePair to actually simply to approach??
+        /// </summary>
+        public Dictionary<string, string> ClaimPairs { get; set; } 
+
+        /// <summary>
+        /// KYC services can't be 100% sure. So uncertainty needs to be captured.
+        /// Especially if there is a chain of trust involved, as uncertainty factors can accumulate.
+        /// Validators can then set their own acceptable threshold values.
+        /// </summary>
+        public decimal Certainty { get; set; } 
+
         /// <summary>
         /// This is just an extra security measure. When a user provides a claim, the hash also needs to be signed
         /// by the user's private key for it to be valid, so this isn't technically needed.

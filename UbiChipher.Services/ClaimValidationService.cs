@@ -6,87 +6,42 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UbiChipher.Infrastructure.Blockchain;
+using UbiChipher.Utilities;
 
 namespace UbiChipher.Services
 {
     public class ClaimValidationService
     {
-        //private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
+        IBlockchainClaimHashFinder blockchainClaimHashFinder;
 
-        public ClaimValidationService()
+        public ClaimValidationService(IBlockchainClaimHashFinder blockchainClaimHashFinder)
         {
-            CreateTestData();
+            // TODO: Use dependency injection, then do (software engineering stuff...):
+            //this.blockchainClaimHashFinder = blockchainClaimHashFinder ?? throw new ArgumentNullException(nameof(blockchainClaimHashFinder));
+
+            // TODO: Remove once DI added (actually add this DI stuff everywhere in the solution, then add unit tests, stuff...
+            this.blockchainClaimHashFinder = new BlockchainClaimHashFinder();
+
+
         }
 
         public void ValidateClaim(string textFromRESTApi, out string hashOfClient, out string hashOnBlockChain, out bool match)
         {
-            var clientClaim = JsonConvert.DeserializeObject<List<Claim>>(textFromRESTApi).Where(x => x.Claims.Any(y => y.Key == "Name")).Single();
-            var clientPubKey = clientClaim.PubKey;
+            // TODO: Should deserialize from SighnedClaimsEnvelope first instead, checking user signature, request detail etc.
+            var clientClaims = JsonConvert.DeserializeObject<List<Claim>>(textFromRESTApi).Where(x => x.ClaimPairs.Any(y => y.Key == "Name")).ToList();//.Single();
+            //var clientPubKey = clientClaim.PubKey;
 
-            hashOfClient = CreateMD5(textFromRESTApi);
-            hashOnBlockChain = GetClientClaimFingerPrintFromBlockchain(clientPubKey, hashOfClient);
+            //TODO: This will need to be changed to iterate over SighnedClaimsEnvelope.ClaimsEnvelope.Claims 
+            {
+                hashOfClient = Cryptography.CreateMD5(textFromRESTApi); //TODO: change textFromRESTApi to SighnedClaimsEnvelope.ClaimsEnvelope.Claims iteration.
+                hashOnBlockChain = this.blockchainClaimHashFinder.GetClientClaimFingerPrintFromBlockchain(clientClaims.Single()); //TODO: change to SighnedClaimsEnvelope.ClaimsEnvelope.Claims iteration.
+            }
 
             match = hashOfClient == hashOnBlockChain;
         }
 
-        private string GetClientClaimFingerPrintFromBlockchain(string clientPubKey, string hashOfClient)
-        {
-            // This will check the hash the client provided against the hash stored on the blockchain.
-
-            return testFingerprint;
-
-            // TODO: complete this implementation
-
-            //var transactionToScanForClaim = CoinService.ListTransactions(clientPubKey);
-
-        }
-
-        private string CreateMD5(string input)
-        {
-            // Use input string to calculate MD5 hash
-            using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
-            {
-                byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
-                byte[] hashBytes = md5.ComputeHash(inputBytes);
-
-                // Convert the byte array to hexadecimal string
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < hashBytes.Length; i++)
-                {
-                    sb.Append(hashBytes[i].ToString("X2"));
-                }
-                return sb.ToString();
-            }
-     
-        }
 
 
-
-        #region Test Data
-        //Claim testClaim;
-        string testFingerprint;
-
-        private void CreateTestData()
-        {
-            var testClaim = new Claim() //[{"Expires":"2021-04-21T15:24:12.6242835Z","PubKey":"21489122-ae06-4bb6-b01b-6e46bb15cc64","Claims":{"Name":"Murray"}}]
-            {
-                Claims = new Dictionary<string, string>()
-                   {
-                       { "Name", "Murray" }
-                   },
-
-                RenewalDate = DateTime.Parse("2021-04-21T15:24:12.6242835Z"), // DateTime.UtcNow.AddDays(365),
-
-                PubKey = "21489122-ae06-4bb6-b01b-6e46bb15cc64" //Guid.NewGuid().ToString()
-            };
-
-            var testClaimsList = new List<Claim>() { testClaim };
-
-            var original = JsonConvert.SerializeObject(testClaimsList);
-
-            testFingerprint = CreateMD5(original);
-        }
-
-        #endregion
     }
 }

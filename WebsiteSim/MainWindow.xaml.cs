@@ -1,9 +1,6 @@
-﻿using QRCoder;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using UbiChipher.Data;
@@ -21,7 +18,7 @@ namespace WebsiteSim
         public MainWindow()
         {
             InitializeComponent();
-            claimValidationService = new ClaimValidationService();
+            claimValidationService = new ClaimValidationService(null);  // TODO: Remove null once DI added
         }
 
         private async void GenerateButton_Click(object sender, RoutedEventArgs e)

@@ -31,7 +31,7 @@ namespace UbiChipher.WebDemo.Controllers
             try
             {
                 // TODO: stuff
-                var claimValidationService = new ClaimValidationService();
+                var claimValidationService = new ClaimValidationService(null); // TODO: Remove null once DI added
 
                 var claimsJson = JsonConvert.SerializeObject(claims); // TODO: Create an overload for ValidateClaim that accepts List<Claim>
 
