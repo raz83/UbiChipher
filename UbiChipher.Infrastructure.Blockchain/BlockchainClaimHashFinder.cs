@@ -1,5 +1,5 @@
-﻿//using BitcoinLib.Services.Coins.Base;
-//using BitcoinLib.Services.Coins.Bitcoin;
+﻿using BitcoinLib.Services.Coins.Base;
+using BitcoinLib.Services.Coins.Bitcoin;
 using Data;
 using Newtonsoft.Json;
 using System;
@@ -10,7 +10,7 @@ namespace UbiChipher.Infrastructure.Blockchain
 {
     public class BlockchainClaimHashFinder : IBlockchainClaimHashFinder
     {
-        //private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
+        private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
 
         public BlockchainClaimHashFinder()
         {
@@ -21,11 +21,14 @@ namespace UbiChipher.Infrastructure.Blockchain
         {
             // This will check the hash the client provided against the hash stored on the blockchain. 
 
-            return testFingerprint;
+
 
             // TODO: complete this implementation
 
-            //var transactionToScanForClaim = CoinService.ListTransactions(clientPubKey);
+            var transactionToScanForClaim = CoinService.ListTransactions();
+            //var bitcoinBalance = CoinService.GetBalance("tb1qdfke6sk95ktdamae9ucntksjgd30d05xj08sdg");
+
+            return testFingerprint;
 
         }
 

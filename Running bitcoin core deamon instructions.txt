@@ -1,0 +1,26 @@
+To use testnet, use the argument -testnet with bitcoin-cli, bitcoind or bitcoin-qt or add testnet=1 to your bitcoin.conf
+
+THIS SHOULD BE DONE USING A DOCKER FILE TO CREATE AND LAUNCH A DOCKER IMAGE FOR BITCOIN DAEMON, BUT FOR NOW:
+
+1. Run Bitcoin core deamon service
+Run In terminal 1:
+cd C:\Program Files\Bitcoin\daemon
+bitcoind -conf=C:\Users\User\AppData\Roaming\Bitcoin\bitcoin.conf -testnet
+
+2. Test cli from command line (or use RPC)
+Run in terminal 2:
+cd C:\Program Files\Bitcoin\daemon
+bitcoin-cli -testnet getbalance
+bitcoin-cli -testnet listtransactions
+
+
+
+
+_
+
+
+
+rpcuser = MyRpcUsername
+rpcpassword=change_this_to_a_long_random_password
+server=1
+txindex=1

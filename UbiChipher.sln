@@ -25,13 +25,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server", "Server", "{295E0F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.WebDemo", "UbiChipher.WebDemo\UbiChipher.WebDemo.csproj", "{EF7DCBCE-64A8-4B13-B1D5-C01D4E03FFA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiChipher.Infrastructure.Blockchain", "UbiChipher.Infrastructure.Blockchain\UbiChipher.Infrastructure.Blockchain.csproj", "{9DD56014-A9BD-443A-8151-DCA7A5B78F9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.Infrastructure.Blockchain", "UbiChipher.Infrastructure.Blockchain\UbiChipher.Infrastructure.Blockchain.csproj", "{9DD56014-A9BD-443A-8151-DCA7A5B78F9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiChipher.Utilities", "UbiChipher.Utilities\UbiChipher.Utilities.csproj", "{33137825-FF04-43FE-B178-6ED2DD0C60E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.Utilities", "UbiChipher.Utilities\UbiChipher.Utilities.csproj", "{33137825-FF04-43FE-B178-6ED2DD0C60E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{96741362-0A37-4201-88A9-0726C2546516}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiChipher.WebApi", "UbiChipher.WebApi\UbiChipher.WebApi.csproj", "{6C437D5B-F1AE-4D14-BB35-6DB3B5AC9B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.WebApi", "UbiChipher.WebApi\UbiChipher.WebApi.csproj", "{6C437D5B-F1AE-4D14-BB35-6DB3B5AC9B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{D50A2C8B-315D-4861-9A5C-F7C9B63AC2F3}"
+	ProjectSection(SolutionItems) = preProject
+		Running bitcoin core deamon instructions.txt = Running bitcoin core deamon instructions.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
