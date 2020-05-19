@@ -5,7 +5,7 @@ using System.Text;
 
 namespace UbiChipher.Data
 {
-    public class Enrolment
+    public class Enrollment
     {
         public List<Claim>  Claims { get; set; }
 
@@ -19,7 +19,6 @@ namespace UbiChipher.Data
         /// BUT THEY SHOUND NOT!! Adds security and uncertainty risks.
         /// </summary>
         public Intermediary Child { get; set; }
-
 
         /// <summary>
         /// Name of the intermediary
