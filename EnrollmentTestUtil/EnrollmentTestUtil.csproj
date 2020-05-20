@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\UbiChipher.Infrastructure.Blockchain\App.config" Link="App.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Data\UbiChipher.Data.csproj" />
     <ProjectReference Include="..\UbiChipher.Infrastructure.Blockchain\UbiChipher.Infrastructure.Blockchain.csproj" />
   </ItemGroup>
