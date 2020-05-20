@@ -1,0 +1,21 @@
+﻿<Window x:Class="EnrollmentTestUtil.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EnrollmentTestUtil"
+        mc:Ignorable="d"
+        Title="Enrollment Test Util" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Label>1. Transfer BTC to this address for the processing fee and to obtain the return address of user's digital wallet.</Label>
+            <TextBox>mnDJL3XEYNKCNwYoJg3RNK56ikTp9nQCVU</TextBox>
+            <Label>2. Wait for transaction confirmations.</Label>
+            <Label>3. Provide Enrollment JSON</Label>
+            <Button Click="Generate_Test_Enrollment_Button_Click">Generate Test Enrollment JSON</Button>
+            <TextBox x:Name="EnrollmentJSONText"/>
+            <Button Click="Enroll_Button_Click">Enroll</Button>
+        </StackPanel>
+    </Grid>
+</Window>
+ 
