@@ -35,12 +35,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.WebApi", "UbiChi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{D50A2C8B-315D-4861-9A5C-F7C9B63AC2F3}"
 	ProjectSection(SolutionItems) = preProject
-		Running bitcoin core deamon instructions.txt = Running bitcoin core deamon instructions.txt
+		Docs\Running bitcoin core deamon instructions.txt = Docs\Running bitcoin core deamon instructions.txt
+		Docs\System Diagram.drawio = Docs\System Diagram.drawio
+		Docs\System Diagram.pdf = Docs\System Diagram.pdf
+		Docs\System Diagram.png = Docs\System Diagram.png
+		Docs\System Diagram.svg = Docs\System Diagram.svg
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnrollmentTestUtil", "EnrollmentTestUtil\EnrollmentTestUtil.csproj", "{A8B725C5-4E9C-43D7-B195-3A1D4FD91BDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnrollmentTestUtil", "EnrollmentTestUtil\EnrollmentTestUtil.csproj", "{A8B725C5-4E9C-43D7-B195-3A1D4FD91BDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UbiChipher.Infrastructure.Blockchain.DevHost", "UbiChipher.Infrastructure.Blockchain.DevHost\UbiChipher.Infrastructure.Blockchain.DevHost.csproj", "{82FAE1E2-B5D0-441A-B350-1FC3E6F69ACA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.Infrastructure.Blockchain.DevHost", "UbiChipher.Infrastructure.Blockchain.DevHost\UbiChipher.Infrastructure.Blockchain.DevHost.csproj", "{82FAE1E2-B5D0-441A-B350-1FC3E6F69ACA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
