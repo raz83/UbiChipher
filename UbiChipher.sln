@@ -36,6 +36,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{D50A2C8B-315D-4861-9A5C-F7C9B63AC2F3}"
 	ProjectSection(SolutionItems) = preProject
 		Docs\Running bitcoin core deamon instructions.txt = Docs\Running bitcoin core deamon instructions.txt
+		Docs\Screenshot_20200523_111231_com.brave.browser.jpg = Docs\Screenshot_20200523_111231_com.brave.browser.jpg
 		Docs\System Diagram.drawio = Docs\System Diagram.drawio
 		Docs\System Diagram.pdf = Docs\System Diagram.pdf
 		Docs\System Diagram.png = Docs\System Diagram.png
