@@ -3,6 +3,28 @@ A privacy focused, public, open, transparent, decentralised, self-soverin, opens
 
 Demo (@8:41): https://youtu.be/WbGETEvv1Qk?t=521
 
+## Background
+### Blockchain for dummies
+Blochain is just common sense. It has been around for centuries. See below.
+![](Docs/Screenshot_20200523_111231_com.brave.browser.jpg)
+
+1. Blockchain is just a distributed ledger, in the same way that the Yappees tribe transferred ownership of Rai Stones on the island of Yap by announcing it to the entire island. But with blockchain it is stored on hard drives instead of mental ledger.
+2. Unlike the Yap island, we don't know everyone involved when it comes to blockchain. So we need the proof of work consensus algorithm and this is just spam protection that came from the 1992 email spam protection program by the name of HashCash. It works by making computers guess hard numbers to solve problems so that attacking the network will be very difficult. 
+3. Your wallet is just something that stores an encryption key that allows you to sign transactions. It is your identifying signature like the Yappees identified each other by recognising each others faces and voices. 
+4. The chain is just a LinkedList where PreviousItem is an actual hash of the previous item. A hash is just like a check sum.
+
+### Features
+1. Crypto project this isn’t actually just better, but can actually make things much more convenient.
+2. Passwordless authentication.
+3. Accountless authentication.
+4. Universal KYC
+5. Fully privacy focused self Sovereign  digital ID that users can truly own and control.
+6.  Simple credit checks even without revealing other details about you. Promotional offers, age checks, gym and students card check. All this can be possible without even revealing your name in the right circumstances.
+
+### System Design
+
+![](Docs/System%20Diagram.png)
+
 ## Video Demos
 #### Promotional Video
 
