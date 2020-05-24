@@ -19,7 +19,7 @@ Blochain is just common sense. It has been around for centuries. See below.
 3. Accountless authentication.
 4. Universal KYC
 5. Fully privacy focused self Sovereign  digital ID that users can truly own and control.
-6.  Simple credit checks, anti-money laundering (AML) even without revealing other details about you. Promotional offers, age checks, gym and students card check. All this can be possible without even revealing your name in the right circumstances.
+6.  Simple credit checks and anti-money laundering (AML) checks even without revealing other details about you. Promotional offers, age checks, gym and students card check. All this can be possible without even revealing your name in the right circumstances.
 
 ### System Design
 
