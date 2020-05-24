@@ -25,6 +25,21 @@ Blochain is just common sense. It has been around for centuries. See below.
 
 ![](Docs/System%20Diagram.png)
 
+Here is an example of the Bitcoin equivalent of Password-Based Key Derivation Function PBKDF PBKDF:
+
+https://brainwalletx.github.io/#generator 
+
+Here is an example of the Bitcoin equivalent of OpenSSL RSA/DSA digital signing:
+
+ https://brainwalletx.github.io/#sign 
+
+Alternatives:
+https://www.bitaddress.org/ 
+https://walletgenerator.net/ 
+https://iancoleman.io/bip39/ 
+
+Important thing to realise, is that these all support air gapping for security (https://en.wikipedia.org/wiki/Air_gap_(networking) ).
+
 ## Video Demos
 #### Promotional Video
 
