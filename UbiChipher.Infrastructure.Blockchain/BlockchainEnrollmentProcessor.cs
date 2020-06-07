@@ -120,7 +120,7 @@ namespace UbiChipher.Infrastructure.Blockchain
             // message
             //var message = "Long live NBitcoin and its makers!";
             var bytes = Encoding.UTF8.GetBytes(this.Message);
-            //transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes));
+            transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes));
 
             // sign it
             // Get it from the public address
@@ -133,6 +133,8 @@ namespace UbiChipher.Infrastructure.Blockchain
                 item.ScriptSig = this.wallets[0].ScriptPubKey;
             }
 
+
+            //ScriptCoin scriptCoin = transaction.Outputs.AsCoins().First().ToScriptCoin(redeemScript);
 
             transaction.Sign(this.wallets[0].Key.GetBitcoinSecret(network), toSpend.Select(x => (ICoin)x).AsEnumerable());
 
