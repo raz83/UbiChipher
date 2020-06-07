@@ -9,7 +9,7 @@
     <Grid>
         <StackPanel>
             <Label>1. Transfer BTC to this address for the processing fee and to obtain the return address of user's digital wallet.</Label>
-            <TextBox>mnDJL3XEYNKCNwYoJg3RNK56ikTp9nQCVU</TextBox> <!--Return tBTC to mkHS9ne12qx9pS9VojpwU5xtRd4T7X7ZUt, 0.005-->
+            <TextBox>n2z9HfufPiMWUBFtFnJ14hsbtP5FJ7UUKw</TextBox> <!--Return tBTC to mkHS9ne12qx9pS9VojpwU5xtRd4T7X7ZUt, 0.005-->
             <Label>2. Wait for transaction confirmations.</Label>
             <Label>3. Provide Enrollment JSON</Label>
             <Button Click="Generate_Test_Enrollment_Button_Click">Generate Test Enrollment JSON</Button>

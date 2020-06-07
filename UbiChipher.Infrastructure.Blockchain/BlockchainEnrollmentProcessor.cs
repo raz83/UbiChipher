@@ -10,9 +10,55 @@ using UbiChipher.Data;
 
 namespace UbiChipher.Infrastructure.Blockchain
 {
+    class Wallet
+    {
+
+        Network network;
+        Key privateKey;
+        internal string PublicKey => privateKey.PubKey.GetAddress(network).ToString();
+
+        internal string WalletImportFormat => privateKey.ToString(network);
+
+        internal Script ScriptPubKey => privateKey.ScriptPubKey;
+
+        public Key Key => privateKey;
+
+        internal Wallet(Network network, string walletImportFormat = null)
+        {
+            this.network = network;
+
+            if (walletImportFormat != null)
+            {
+                var secret = new BitcoinSecret(walletImportFormat);
+                this.privateKey = secret.PrivateKey;
+            }
+            else
+            {
+                privateKey = new Key();
+            }
+        }
+
+
+    }
+
     public class BlockchainEnrollmentProcessor
     {
         private readonly ICoinService CoinService = new BitcoinService(useTestnet: true);
+        List<Wallet> wallets = new List<Wallet>();
+
+        public BlockchainEnrollmentProcessor()
+        {
+            //var secret = new BitcoinSecret("cS6XuFcnuRQTXSZiBZC7MNkmhGCixUWfNZ4yDkvLCJX3h161LhgX"); //mnDJL3XEYNKCNwYoJg3RNK56ikTp9nQCVU, bitcoin core: importprivkey 
+            //var secret = new BitcoinSecret("L1wCJhdePmVds249szRqGkUwYxNhxkLHG9xHfdRyPrD87NfuHmWY"); //  n2z9HfufPiMWUBFtFnJ14hsbtP5FJ7UUKw
+
+            this.network = Network.TestNet;
+            //this.wallets.Add(new Wallet(network, "L1wCJhdePmVds249szRqGkUwYxNhxkLHG9xHfdRyPrD87NfuHmWY"));
+            this.wallets.Add(new Wallet(network, "cS6XuFcnuRQTXSZiBZC7MNkmhGCixUWfNZ4yDkvLCJX3h161LhgX"));
+
+            //ToAddress = "tb1qm8yv5p2es240a52465m8yqwy9su3fkav0h3n8n";
+            ToAddress = "n2z9HfufPiMWUBFtFnJ14hsbtP5FJ7UUKw";
+
+        }
 
         public void Enroll(Enrollment enrollment)
         {
@@ -29,7 +75,7 @@ namespace UbiChipher.Infrastructure.Blockchain
 
             // BitcoinLib to NBitcoin 
             //Coin(uint256 fromTxHash, uint fromOutputIndex, Money amount, Script scriptPubKey);
-            this.unspentCoins = txs.Select(x => new Coin(uint256.Parse(x.TxId), (uint)x.Vout, new Money(x.Amount,MoneyUnit.BTC), new Script(x.ScriptPubKey))).ToList();
+            this.unspentCoins = txs.Select(x => new Coin(uint256.Parse(x.TxId), (uint)x.Vout, new Money(x.Amount,MoneyUnit.BTC), new Script(x.ScriptPubKey).PaymentScript)).ToList();
 
             var createRawTransactionInput = new CreateRawTransactionInput();
             var createRawTransactionRequest = new CreateRawTransactionRequest();
@@ -39,11 +85,12 @@ namespace UbiChipher.Infrastructure.Blockchain
 
             //CoinService.CreateRawTransaction()
 
+            balance = CoinService.GetBalance();
 
-
+            SendBTC();
         }
 
-        private void SendBTC(object obj)
+        private void SendBTC(/*object obj*/)
         {
             if (SendAmount > balance) return;
             //List<Coin> toSpend = MinimumCoinsToCoverTransaction(); // Bitcoin doesn't allow spending just the inputs you need from a previous transaction?
@@ -64,17 +111,16 @@ namespace UbiChipher.Infrastructure.Blockchain
             // How much?
             Money minerFee = new Money(this.Fee, MoneyUnit.BTC);
             Money amoundToSpend = new Money(this.SendAmount, MoneyUnit.BTC);
+            var change = new Money(toSpend.Sum(x => x.Amount.ToDecimal(MoneyUnit.BTC)) - amoundToSpend.ToDecimal(MoneyUnit.BTC) - minerFee.ToDecimal(MoneyUnit.BTC), MoneyUnit.BTC);
 
             transaction.Outputs.Add(amoundToSpend, hallOfTheMakersAddress.ScriptPubKey);
             // Send the change back
-            transaction.Outputs
-                .Add(new Money(toSpend.Sum(x => x.Amount.ToDecimal(MoneyUnit.BTC)) - amoundToSpend.ToDecimal(MoneyUnit.BTC) - minerFee.ToDecimal(MoneyUnit.BTC), MoneyUnit.BTC),
-                this.wallets[0].ScriptPubKey);
+            transaction.Outputs.Add(change, this.wallets[0].ScriptPubKey);
 
             // message
             //var message = "Long live NBitcoin and its makers!";
             var bytes = Encoding.UTF8.GetBytes(this.Message);
-            transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes));
+            //transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes));
 
             // sign it
             // Get it from the public address
@@ -90,7 +136,10 @@ namespace UbiChipher.Infrastructure.Blockchain
 
             transaction.Sign(this.wallets[0].Key.GetBitcoinSecret(network), toSpend.Select(x => (ICoin)x).AsEnumerable());
 
-            transaction // ToHex, ToBytes, ToString
+
+            var td = transaction.ToBytes();
+
+            //transaction // ToHex, ToBytes, ToString
 
 
             //// Propagate your transactions
@@ -123,7 +172,7 @@ namespace UbiChipher.Infrastructure.Blockchain
         //string historyDebug = string.Empty;
         //public string HistoryDebug { get { return historyDebug; } set { historyDebug = value; OnPropertyChanged(); } }
 
-        public decimal SendAmount { get; set; } = 0.005m;
+        public decimal SendAmount { get; set; } = 0.004m;
         public decimal Fee { get; private set; } = 0.00000300m;
 
         decimal balance = 0m;
