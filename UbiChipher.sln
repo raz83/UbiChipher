@@ -49,9 +49,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.Infrastructure.B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Temp", "Temp", "{C62265E2-DB45-411F-A9AF-147BF776FD6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BitcoinLib temp", "ConsoleApp2\BitcoinLib temp.csproj", "{47A3E56E-4A91-4A1F-8A0F-AF03B301A6FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitcoinLib temp", "ConsoleApp2\BitcoinLib temp.csproj", "{47A3E56E-4A91-4A1F-8A0F-AF03B301A6FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nbitcoin temp", "Nbitcoin temp\Nbitcoin temp.csproj", "{726AA5C7-67C1-45EB-A68E-B130BDE7F74D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nbitcoin temp", "Nbitcoin temp\Nbitcoin temp.csproj", "{726AA5C7-67C1-45EB-A68E-B130BDE7F74D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company Website", "Company Website", "{6EA8636B-BEF0-4090-9926-8BC7E5414F97}"
+	ProjectSection(SolutionItems) = preProject
+		Company Website\03-comming-soon.html = Company Website\03-comming-soon.html
+		Company Website\IMG_20200608_230210.jpg = Company Website\IMG_20200608_230210.jpg
+		Company Website\index.html = Company Website\index.html
+		Company Website\Logo 1.png = Company Website\Logo 1.png
+		Company Website\Logo2.jpg = Company Website\Logo2.jpg
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

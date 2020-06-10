@@ -1,0 +1,10 @@
+(function(props,context) {
+        Core.utils.renderBootstrap({
+          elId:'bs-2',
+          componentName:'HeaderVideoBackground',
+          props:props,
+          context:context,
+          contextKey:'context-bs-1',
+          radpack:""
+        });
+      })({"videoType":"upload","showOverlay":true,"treatment":"Fill","viewDevice":"","mutatorPath":null,"dataRoute":"background","videoBackground":"\u002F\u002Fcategories.api.godaddy.com\u002Fv4\u002Fvideos\u002Fraw\u002Fvideo\u002FuA41GmyyG8IMaxXdb","videoPoster":"\u002F\u002Fimg1.wsimg.com\u002Fisteam\u002Fvideos\u002FuA41GmyyG8IMaxXdb","videoBgStyle":{"position":"absolute","top":0,"left":0,"height":"100%","width":"100%","overflow":"hidden"},"videoStyle":{"position":"absolute","top":"50%","left":"50%","transform":"translateX(-50%) translateY(-50%)","height":"auto","minHeight":"100%","width":"100%","objectFit":"cover"},"widgetId":"71a5b96d-5d09-4403-9988-2116efa4263f","section":"default","category":"accent","locale":"en-GB","renderMode":"PUBLISH"},{"widgetId":"71a5b96d-5d09-4403-9988-2116efa4263f","widgetType":"HEADER","widgetPreset":"header9","section":"default","category":"accent","fontSize":"medium","fontFamily":"alternate","group":"HeaderMedia","groupType":"Fill","styleOverrides":{}});

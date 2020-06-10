@@ -13,8 +13,8 @@ namespace Nbitcoin_temp
         static void Main(string[] args)
         {
             var testw = new TestWallet();
-            var tx = testw.GetTransactionData("16c61c5679ffa9bfbdd54d7f4c99c978321e69b919275f80fd882490328c434c");
-            testw.SendBTC();
+            var tx = testw.ReadTokenHashFromBlockchain("16c61c5679ffa9bfbdd54d7f4c99c978321e69b919275f80fd882490328c434c");
+            testw.WriteTokenHashToBlockchain();
 
             Console.ReadLine();
         }
@@ -30,7 +30,7 @@ namespace Nbitcoin_temp
 
         private string toAddress;
         public string ToAddress { get { return toAddress; } set { toAddress = value; } }//=> wallets[1].PublicKey; //"mnDJL3XEYNKCNwYoJg3RNK56ikTp9nQCVU";
-        public string Message { get; set; } = "Stuur Abie al my Bitcoins.";
+        public const string Message = "Stuur Abie al my Bitcoins.";
 
         string historyDebug = string.Empty;
         public string HistoryDebug { get { return historyDebug; } set { historyDebug = value;  } }
@@ -87,9 +87,7 @@ namespace Nbitcoin_temp
             ToAddress = wallets[1].PublicKey;
         }
 
-
-
-        public void SendBTC()
+        public void WriteTokenHashToBlockchain(string hashString = Message)
         {
             if (SendAmount > balance) return;
             //List<Coin> toSpend = MinimumCoinsToCoverTransaction(); // Bitcoin doesn't allow spending just the inputs you need from a previous transaction?
@@ -119,7 +117,7 @@ namespace Nbitcoin_temp
 
             // message
             //var message = "Long live NBitcoin and its makers!";
-            var bytes = Encoding.UTF8.GetBytes(this.Message);
+            var bytes = Encoding.UTF8.GetBytes(hashString);
             transaction.Outputs.Add(Money.Zero, TxNullDataTemplate.Instance.GenerateScriptPubKey(bytes));
 
             // sign it
@@ -139,9 +137,12 @@ namespace Nbitcoin_temp
 
             rpcClient.SendRawTransaction(transaction);
 
+            // TODO: Return the transaction ID as user will need this to point to his token.
+            // Maybe call RPC to list transactions, order them by time ("block time") and pick the last, it will be the last tx.
+
         }
 
-        internal object GetTransactionData(string v)
+        internal object ReadTokenHashFromBlockchain(string v)
         {
             //return Encoding.UTF8.GetString(rpcClient.GetRawTransaction(new uint256(v)).ToBytes());
             return rpcClient.GetRawTransaction(new uint256(v)).ToString(RawFormat.BlockExplorer);

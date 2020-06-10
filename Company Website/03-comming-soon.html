@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+    <title>TITLE</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <style>
+        .bannerCard {
+            max-width: 1000px;
+            height: 300px;
+            margin: 0 auto;
+            /*background-color: powderblue;*/
+        }
+    </style>
+
+    <!-- Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CPoppins:400,500" rel="stylesheet">
+    <link href="common-css/ionicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="common-css/jquery.classycountdown.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="03-comming-soon/css/styles.css" rel="stylesheet">
+    <link href="03-comming-soon/css/responsive.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <div class="main-area center-text" style="background-image:url(images/countdown-3-1600x900.jpg);">
+
+        <div class="display-table">
+            <div class="display-table-cell">
+
+                <!-- <h1 class="title font-white"><b>Comming Soon</b></h1> -->
+                <img src="Logo2.jpg" style="width:600px;" />
+                <!--<p class="desc font-white">
+                    Our website is currently undergoing scheduled maintenance.
+                    We Should be back shortly. Thank you for your patience.
+                </p>-->
+                <br />
+                <br />
+                <div class="mySlides">
+                    <div class="bannerCard">
+                        <h1>CyberToken Wallet</h1>
+                        <h2>Use tokens, not passwords.</h2>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="bannerCard">
+                        <h3>Take back complete ownership of your full online persona with a single App. Use verified tokens to proof that claims you make about yourself are true. Personally authorise every instance where these tokens are used on your behalf in online interactions. </h3>
+                    </div>
+                </div>
+                <div class="mySlides">
+                    <div class="bannerCard">
+                        <h4>Each token, contains within it, a digital fingerprint of the information about you that it represents. This is encoded in such a way that the information the token represents can't be extracted from the token itself, unless you also explicitly provide the information you5 want to share and specifically exactly how you authorise the information to be used and for how long. </h4>
+                    </div>
+                </div>
+                <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+                <br />
+                <br />
+                <br />
+                <br />
+
+                <a class="notify-btn" href="#"><b>Contact Us</b></a>
+
+                <ul class="social-btn font-white">
+                    <li><a href="#">facebook</a></li>
+                    <li><a href="#">twitter</a></li>
+                    <li><a href="#">google</a></li>
+                    <li><a href="#">instagram</a></li>
+                </ul><!-- social-btn -->
+
+            </div><!-- display-table -->
+        </div><!-- display-table-cell -->
+    </div><!-- main-area -->
+
+    <script>
+
+        var slideIndex = 1;
+        showDivs(slideIndex);
+
+        function plusDivs(n) {
+            showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            x[slideIndex - 1].style.display = "block";
+        }
+
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 20000); // Change image every 2 seconds
+        }
+    </script>
+
+</body>
+</html>

@@ -62,7 +62,7 @@ namespace UbiChipher.Infrastructure.Blockchain
 
         public void Enroll(Enrollment enrollment)
         {
-            var userAdd = enrollment.Claims[0].PubKey; // Obviously bad code, it's late and I am just testing something.
+            var userAdd = enrollment.Claims[0].PubKey; // Obviously bad code (who need null check contains any eh?), it's late and I am just testing something.
 
             var transactionToScanForClaim = CoinService.ListTransactions();
             var txid = transactionToScanForClaim.Last().TxId; // But it may not actually be the last one
