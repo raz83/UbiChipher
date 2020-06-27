@@ -96,6 +96,9 @@ https://github.com/decentralized-identity
 
 https://id2020.org/
 
+#### ID2020 and vaccination related
+##### EU roadmap for vaccination cards
+
 ### European Blockchain Services Infrastructure (EBSI)
 
 https://ec.europa.eu/cefdigital/wiki/display/CEFDIGITAL/EBSI
