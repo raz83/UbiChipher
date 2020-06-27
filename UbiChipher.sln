@@ -35,12 +35,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UbiChipher.WebApi", "UbiChi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{D50A2C8B-315D-4861-9A5C-F7C9B63AC2F3}"
 	ProjectSection(SolutionItems) = preProject
+		Docs\How are we different.docx = Docs\How are we different.docx
 		Docs\Running bitcoin core deamon instructions.txt = Docs\Running bitcoin core deamon instructions.txt
 		Docs\Screenshot_20200523_111231_com.brave.browser.jpg = Docs\Screenshot_20200523_111231_com.brave.browser.jpg
 		Docs\System Diagram.drawio = Docs\System Diagram.drawio
 		Docs\System Diagram.pdf = Docs\System Diagram.pdf
 		Docs\System Diagram.png = Docs\System Diagram.png
 		Docs\System Diagram.svg = Docs\System Diagram.svg
+		Docs\Technical Research.docx = Docs\Technical Research.docx
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnrollmentTestUtil", "EnrollmentTestUtil\EnrollmentTestUtil.csproj", "{A8B725C5-4E9C-43D7-B195-3A1D4FD91BDA}"
@@ -60,6 +62,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Company Website", "Company 
 		Company Website\index.html = Company Website\index.html
 		Company Website\Logo 1.png = Company Website\Logo 1.png
 		Company Website\Logo2.jpg = Company Website\Logo2.jpg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{42C8898A-946D-4FD1-93AD-E702364D128D}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Misc\Identity Hubs as personal datastores - Microsoft Tech Community - 389577.pdf = Docs\Misc\Identity Hubs as personal datastores - Microsoft Tech Community - 389577.pdf
+		Docs\Misc\Introduction to Ion – a layer 2 network for Decentralized Identifiers with Bitcoin - Daniel Buchner.pdf = Docs\Misc\Introduction to Ion – a layer 2 network for Decentralized Identifiers with Bitcoin - Daniel Buchner.pdf
+		Docs\Misc\ION – Booting up the network - Microsoft Tech Community - 1441552.pdf = Docs\Misc\ION – Booting up the network - Microsoft Tech Community - 1441552.pdf
+		Docs\Misc\Microsoft Decentralized Identity.pdf = Docs\Misc\Microsoft Decentralized Identity.pdf
+		Docs\Misc\The Element DID Method - Sidetree, Ethereum & IPFS – Orie Steele.pdf = Docs\Misc\The Element DID Method - Sidetree, Ethereum & IPFS – Orie Steele.pdf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gov", "Gov", "{FF133D64-1E4D-4463-9037-BE4B621E145E}"
+	ProjectSection(SolutionItems) = preProject
+		Docs\Misc\Gov\European Self Sovereign identity framework.pdf = Docs\Misc\Gov\European Self Sovereign identity framework.pdf
+		Docs\Misc\Gov\ROADMAP FOR THE IMPLEMENTATION OF ACTIONS BY THE EUROPEAN COMMISSION BASED ON THE COMMISSION.pdf = Docs\Misc\Gov\ROADMAP FOR THE IMPLEMENTATION OF ACTIONS BY THE EUROPEAN COMMISSION BASED ON THE COMMISSION.pdf
 	EndProjectSection
 EndProject
 Global
@@ -271,6 +288,8 @@ Global
 		{A8B725C5-4E9C-43D7-B195-3A1D4FD91BDA} = {94ED9783-75E0-474D-8397-E2D86E37E6D2}
 		{47A3E56E-4A91-4A1F-8A0F-AF03B301A6FC} = {C62265E2-DB45-411F-A9AF-147BF776FD6E}
 		{726AA5C7-67C1-45EB-A68E-B130BDE7F74D} = {C62265E2-DB45-411F-A9AF-147BF776FD6E}
+		{42C8898A-946D-4FD1-93AD-E702364D128D} = {D50A2C8B-315D-4861-9A5C-F7C9B63AC2F3}
+		{FF133D64-1E4D-4463-9037-BE4B621E145E} = {42C8898A-946D-4FD1-93AD-E702364D128D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7E5A4B6F-FB18-4ED9-A7D3-8625A82D4E46}
