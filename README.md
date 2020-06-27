@@ -98,6 +98,7 @@ https://id2020.org/
 
 #### ID2020 and vaccination related
 ##### EU roadmap for vaccination cards
+https://ec.europa.eu/health/sites/health/files/vaccination/docs/2019-2022_roadmap_en.pdf?fbclid=IwAR2QXlTd7dUPy52rURfH4Nj2M5YVkiYqmNx6_3SuH2LzlFqqqwMlODJUfYA
 
 ### European Blockchain Services Infrastructure (EBSI)
 
